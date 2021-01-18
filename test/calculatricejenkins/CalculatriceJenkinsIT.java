@@ -1,39 +1,43 @@
 package calculatricejenkins;
 
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import junit.framework.Assert;
 import org.junit.Test;
-import static org.junit.Assert.*;
 
 public class CalculatriceJenkinsIT {
-    
-    public CalculatriceJenkinsIT() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-    }
-    
-    @After
-    public void tearDown() {
+
+    @Test
+    public void testAddition() {
+        // Given
+        Calculatrice calculatrice = new Calculatrice();
+        // When
+        int resultat = calculatrice.addition(2, 2);
+        // Then
+        if (resultat != 4) {   // if 2 + 2 != 4
+            Assert.fail();
+        }
     }
 
     @Test
-    public void testMain() {
-        System.out.println("main");
-        String[] args = null;
-        CalculatriceJenkins.main(args);
-        fail("The test case is a prototype.");
+    public void testSoustraction() {
+        Calculatrice calculatrice = new Calculatrice();
+        Assert.assertEquals(0, calculatrice.soustraction(2, 2));
     }
-    
+
+    @Test
+    public void testDivision() {
+        Calculatrice calculatrice = new Calculatrice();
+        Assert.assertEquals(2, calculatrice.division(6, 3));
+    }
+
+    @Test(expected = ArithmeticException.class)
+    public void testDivisionWillThrowExceptionWhenDivideOnZero() {
+        Calculatrice calculatrice = new Calculatrice();
+        calculatrice.division(6, 0);
+    }
+
+    @Test
+    public void testMultiplication() {
+        Calculatrice calculatrice = new Calculatrice();
+        Assert.assertEquals(6, calculatrice.multiplication(2, 3));
+    }
 }
