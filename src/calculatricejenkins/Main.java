@@ -1,6 +1,6 @@
 package calculatricejenkins;
 
-public class CalculatriceJenkins {
+public class Main {
 
     /**
      * @param args the command line arguments
