@@ -3,7 +3,7 @@ package calculatricejenkins;
 import junit.framework.Assert;
 import org.junit.Test;
 
-public class CalculatriceJenkinsIT {
+public class CalculatriceTest {
 
     @Test
     public void testAddition() {
